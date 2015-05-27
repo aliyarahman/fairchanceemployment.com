@@ -1,0 +1,157 @@
+/* Global style */
+
+html {
+}
+
+body {
+    margin: 0px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.white-text {
+    color: #fff;
+}
+
+
+.yellow-text {
+    color: #ffdb1d;
+}
+
+.yellow-bg {
+    background-color: #ffdb1d;
+}
+
+.blue-text {
+    color: #1660b2;
+}
+
+.blue-bg {
+    background-color: #1660b2;
+}
+
+.black-text {
+    color: #171717;
+}
+
+.black-bg {
+    background-color: #171717;
+}
+
+.grey-text {
+    color: #999999;
+}
+
+.grey-bg {
+    background-color: #999999;
+}
+
+.light-blue-bg {
+    background-color: #4d89c4;
+}
+
+/* Header style */
+
+.header-bar {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(255,255,255,0.65);
+    height: 100px;
+}
+
+.fce-logo, .tagline, #signin-links, #menu-button {
+    display: inline-block;
+    margin: 10px;
+    font-size: 1.5em;
+    height: 80px;
+}
+
+.fce-logo, .tagline {
+    line-height: 1em;
+    vertical-align: top;
+}
+
+.fce-logo img {
+    height: 100%;
+}
+
+.right-nav {
+    display: inline-block;
+}
+
+#signin-links {
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+
+#signin-links div {
+    display: inline-block;
+}
+
+
+#menu-button {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+}
+
+.burger-box {
+    margin-top: 32%;
+}
+
+.burger-bar {
+    margin:5px auto;
+    height: 5px;
+    width: 60%;
+}
+
+
+
+
+
+
+/* Landing page style */
+
+.video-wrapper {
+    width: 100%;
+}
+
+.video-wrapper video {
+    width: 100%;
+}
+
+
+.headlines {
+    font-size: 2em;
+    position: absolute;
+    top: 300px;
+    line-height: 1em;
+    text-shadow: 1px 1px #999999;
+}
+
+.headlines h1 {
+    font-size: 2.5em;
+}
+
+.search-splash {
+    width: 100%;
+    margin: -5px 0px 0px 0px;
+}
+
+.search-splash button {
+    font-size: 1em;
+}
+
+.user-type-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-type-image img {
+    width: 100%;
+    height: auto;
+}

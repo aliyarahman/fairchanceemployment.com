@@ -2,55 +2,50 @@
 {% block container %}
 {% load staticfiles %}
 
-    <div class="jumbotron">
-        <img src="{% static 'img/banner.jpg' %}">
-        <div class="col-md-4 col-xs-4 col-sm-4 col-lg-4 change">
-                <h1>Find employers who hire returning citizens.</h1>
+
+    <div class="container headlines white-text">
+        <div class="row">
+            <div class="col-xs-12 col-m-8"><h1><b>Fair Chance Employment</b></h1></div>
         </div>
+        <div class="row">
+            <div class="col-sm-6">Mission statement mission statement mission statement</div>
+        </div>
+    </div>
+
+    <div class="video-wrapper">
+        <video autoplay loop="loop" poster="{% static 'img/landing_wallpaper.png' %}">
+            <source src="{% static 'img/landing_mov.webm' %}" type="video/webm">
+        </video>
     </div>
     
-    <div class="container">
+
+    <div class="container white-text blue-bg search-splash">
         <div class="row">
-            <div class="col-md-4">
-                <a class="btn btn-primary btn-lg" href="{% url 'search' %}" role="button">Search/rate employers »</a>
-                <h4 class = "buttontagline"> Find out which companies hire returning citizens and rate your experiences looking for a job.</h4> 
+            <div class="col-xs-12 text-center"><h1><b>Search the Database as:</b></h1></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-2 text-center">
+                <button class="btn btn-lg light-blue-bg">
+                    Job seeker
+                </button>
+                <div class="user-type-image"><img src="{% static 'img/women_sharing.jpg' %}"></div>
             </div>
-
-            <div class="col-md-4">
-                <a class="btn btn-primary btn-lg" href="#" role="button">List your company »</a>
-                <h4 class = "buttontagline"> Add information and policies around your process for hiring returning citizens. </h4>
+            <div class="col-xs-offset-2 col-xs-2 text-center">
+                <button class="btn btn-lg light-blue-bg">
+                    Employer
+                </button>
+                <div class="user-type-image"><img src="{% static 'img/man_smiling.jpg' %}"></div>
             </div>
-
-            <div class="col-md-4">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Shop conscious »</a>
-                <h4 class = "buttontagline">Learn about the companies and practices that support returning citizens.</h4>
+            <div class="col-xs-offset-2 col-xs-2 text-center">
+                <button class="btn btn-lg light-blue-bg">
+                    Conscious consumer
+                </button>
+                <div class="user-type-image"><img src="{% static 'img/businessman.jpg' %}"></div>
             </div>
         </div>
     </div>
 
+
 </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>
-
-$('document').ready(function() {
-        $('.jumbotron').each(function() {
-            var obj = $(this);
-            var imgHeight = $('img',obj).height();
-            $(this).height(imgHeight);
-        });
-
-        $( window ).resize(function() {
-          $('.jumbotron').each(function() {
-            var obj = $(this);
-            var imgHeight = $('img',obj).height();
-            $(this).height(imgHeight);
-        });
-        });
-
-});
-
-
-
-</script>
 
 {% endblock %}
