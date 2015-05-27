@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'fce',
         'USER': db_user_hidden,
         'PASSWORD': db_password_hidden,
-        'HOST': '127.0.0.1',
+        'HOST': 'localhost',
         'PORT': '5432',
 
     }
