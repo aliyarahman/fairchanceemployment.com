@@ -124,16 +124,19 @@ body {
 
 
 .headlines {
-    font-size: 2em;
-    position: absolute;
-    top: 300px;
+    font-size: 1.9em;
+    margin-top: -10em;
+    margin-left: 1em;
     line-height: 1em;
     text-shadow: 1px 1px #999999;
+    background-color: rgba(0,0,0,0.2);
+    padding: 1em;
 }
 
 .headlines h1 {
     font-size: 2.5em;
 }
+
 
 .search-splash {
     width: 100%;
