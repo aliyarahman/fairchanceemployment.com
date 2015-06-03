@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block container %}
+
 {% load staticfiles %}
 
 
@@ -10,42 +11,128 @@
             <source src="{% static 'img/landing_mov.webm' %}" type="video/webm">
         </video>
     </div>
-    
-    <div class="container headlines white-text col-sm-8">
-        <div class="row">
-            <div class="col-xs-12 col-m-8"><h1><b>Fair Chance Employment</b></h1></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-m-6">Mission statement mission statement mission statement</div>
+
+    <div class="video-overlay">
+        <div class="headlines white-text col-sm-12">
+            <div class="row">
+                <div class="col-xs-12"><h1><br><br><br><b>Fair Chance Employment</b></h1></div>
+
+                <div class="col-xs-12 col-m-8">Find employers who hire and support returning citizens</div>
+            </div>
         </div>
     </div>
-    <div class="container white-text blue-bg search-splash">
+    
+
+
+    
+
+
+    <div class="white-text search-splash">
         <div class="row">
-            <div class="col-xs-12 text-center"><h1><b>Search the Database as:</b></h1></div>
+            <div class="col-xs-12 search-headline text-center">Search the Database as:</div>
         </div>
+
         <div class="row">
-            <div class="col-xs-offset-1 col-xs-2 text-center">
+            <div class="col-sm-4 text-center">
                 <button class="btn btn-lg light-blue-bg">
-                    Job seeker
-                </button>
-                <div class="user-type-image"><img src="{% static 'img/women_sharing.jpg' %}"></div>
-            </div>
-            <div class="col-xs-offset-2 col-xs-2 text-center">
-                <button class="btn btn-lg light-blue-bg">
-                    Employer
+                    Job Seeker
                 </button>
                 <div class="user-type-image"><img src="{% static 'img/man_smiling.jpg' %}"></div>
             </div>
-            <div class="col-xs-offset-2 col-xs-2 text-center">
+
+            <div class="col-sm-4 text-center">
                 <button class="btn btn-lg light-blue-bg">
-                    Conscious consumer
+                    Employer
                 </button>
-                <div class="user-type-image"><img src="{% static 'img/businessman.jpg' %}"></div>
+                <div class="user-type-image middle-user">
+                    <img src="{% static 'img/businessman.jpg' %}">
+                </div>
+            </div>
+
+            <div class="col-sm-4 text-center">
+                <button class="btn btn-lg light-blue-bg">
+                    Conscious Consumer
+                </button>
+                <div class="user-type-image"><img src="{% static 'img/women_sharing.jpg' %}"></div>
             </div>
         </div>
     </div>
 
 
-</div>
+    <div class="search-splash-triangle-down"></div>
+
+    <div class="splash-learn-more block-center text-center white-text">
+        <h3>Learn more</h3>
+        <div class="big-arrow">&#8964;</div>
+    </div>
+        
+
+    <div class="row container-fluid white-text why-fair-chance-holder">
+        <div class="col-sm-5 dark-grey-bg" id="why-fair-chance-employment">
+            <br>
+            <h3><b>Why fair chance employment?</b></h3>
+            <h4>Fair chance employment provides a pathway for people who have done their time in the criminal justice system to make decisions that let them return to the work of taking care of themselves, their families, and their loved ones.</h4>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-5 white-bg"> <!--Left column content -->
+
+            <div class="row white-bg black-text container-fluid">
+                <div class="col-md-5 white-bg">
+                    <h1>
+                        <b>Get started using the database</b>
+                    </h1>
+                    <div>&nbsp;</div>
+                </div>
+            </div>
+
+            <div class="row white-bg container-fluid">
+                <div class="blue-bg white-text bar-button">
+                    <h3 class="pull-left">Learn how to <br>list your business</h3>
+                </div>
+                <div class="triangle-right"></div>
+            </div>
+
+            <div class="row white-bg">&nbsp;</div>
+            
+            <div class="row white-bg container-fluid">
+                <div class="blue-bg white-text bar-button">
+                    <h3 class="pull-left">Search re-entry <br>friendly businesses</h3>
+                </div>
+                <div class="triangle-right"></div>
+            </div>
+
+            <div class="row white-bg">&nbsp;</div>
+
+        </div>
+
+        <div class="col-sm-7 white-bg"> <!--Right column content -->
+            <div>
+                <div class="stats-holder col-sm-9 yellow-bg black-text ">
+                    <div class="row">
+                        <div class="splash-stats-text">
+                        <h2><strong>Stats & Numbers</strong></h2>
+                        <p>Who does fair chance employment impact, and at what scale? What job realities do returning citizens face when they come home?</p>
+                        </div>
+                    </div>
+
+
+                    <div class="row text-center">
+                        <div class="infographic-left-arrow blue-text btn">&lt;</div>
+
+                        <div class="infographic-holder">
+                            <img src="{% static 'img/infographic-2.png' %}">
+                        </div>
+
+                        <div class="infographic-right-arrow blue-text btn">&gt;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 {% endblock %}

@@ -45,9 +45,23 @@ body {
     background-color: #999999;
 }
 
+.light-grey-bg {
+    background-color: #cccccc;
+}
+
+.dark-grey-bg {
+    background-color: #717171;
+}
+
 .light-blue-bg {
     background-color: #4d89c4;
 }
+
+.white-bg {
+    background-color: #fff;
+}
+
+
 
 /* Header style */
 
@@ -62,9 +76,23 @@ body {
 
 .fce-logo, .tagline, #signin-links, #menu-button {
     display: inline-block;
-    margin: 10px;
     font-size: 1.5em;
     height: 80px;
+    margin-top: 10px;
+}
+
+.tagline {
+    padding-left: 1em;
+}
+
+
+#menu-button:hover {
+    color: #ffdb1d;
+    background-color: #171717;
+}
+
+#login-link:hover, #register-link:hover {
+    color: #ffdb1d;
 }
 
 .fce-logo, .tagline {
@@ -105,8 +133,37 @@ body {
     margin:5px auto;
     height: 5px;
     width: 60%;
+    background-color: #444444;
 }
 
+
+/* Footer style */
+
+footer {
+    background-color: #999999;
+    height: auto;
+    padding: 1em;
+}
+
+
+
+.soc-media-icons {
+    padding-right: 2em;
+    margin-bottom: 2em;
+}
+
+.soc-media-icon {
+    display: inline-block;
+    width: 50px;
+}
+
+.soc-media-icon img {
+    width: 100%;
+}
+
+#email-signup-button {
+    margin-right: 1em;
+}
 
 
 
@@ -122,15 +179,24 @@ body {
     width: 100%;
 }
 
+.video-overlay {
+    height: 55em;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0,0,0,0.35);
+    z-index: 1;
+    top: 100px;
+    left: 0px;
+    z-index: 2;
+}
 
 .headlines {
-    font-size: 1.9em;
-    margin-top: -10em;
-    margin-left: 1em;
+    font-size: 2.5em;
+    margin-left: 2%;
     line-height: 1em;
-    text-shadow: 1px 1px #999999;
-    background-color: rgba(0,0,0,0.2);
-    padding: 1em;
+    padding: 0.2em;
+    vertical-align: bottom;
+
 }
 
 .headlines h1 {
@@ -141,20 +207,142 @@ body {
 .search-splash {
     width: 100%;
     margin: -5px 0px 0px 0px;
+    background-image: url('../img/background-noise-tile.gif');
+    position: relative;
+    z-index: 3;
+}
+
+.search-headline {
+    font-weight: bold;
+    font-size: 4em;
+    margin-bottom: 0.75em;
+    margin-top: 0.1em;
 }
 
 .search-splash button {
-    font-size: 1em;
+    font-size: 2em;
 }
 
 .user-type-image {
-    width: 200px;
-    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    margin-bottom: 1em;
     border-radius: 50%;
     overflow: hidden;
+    width: 80%;
+}
+
+.middle-user {
+    width: 100%;
+    position: relative;
+    top: 5.5em;
 }
 
 .user-type-image img {
     width: 100%;
     height: auto;
+}
+
+.splash-learn-more {
+    position: relative;
+    top: 15em;    
+    z-index: 5;
+    color: #fff;
+}
+
+.big-arrow {
+    font-size: 6em;
+    margin-top: -0.8em;
+}
+
+
+.search-splash-triangle-down {
+    width: 0;
+    position: relative;
+    margin-bottom: -330px;
+    border-top: 200px solid #1660b2;
+    border-left: 700px solid transparent;
+    border-right: 700px solid transparent;
+}
+
+.why-fair-chance-holder {
+    background-image: url('../img/why-fair-chance.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#why-fair-chance-employment {
+    padding: 0 1.5em 1em 1.5em;
+    margin-top: 25em;
+    margin-bottom: 15em;
+    background-color: rgba(0,0,0,0.65);
+}
+
+#why-fair-chance-employment h4 {
+    line-height: 1.3em;
+}
+
+.bar-button {
+    text-align: left;
+    padding-left: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20em;
+    height: 8em;
+    cursor: pointer;
+    cursor: hand;
+    -webkit-transition: all 0.5s; /* Safari */
+    transition: all 0.5s;
+}
+
+.bar-button:hover {
+    padding-left: 6em;
+    width: 25em;
+}
+
+.bar-button h3 {
+    line-height: 1.3em;
+}
+
+
+.triangle-right {
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 0;
+    margin-left: -4px;
+    border-top: 4em solid transparent;
+    border-left: 2em solid #1660b2;
+    border-bottom: 4em solid transparent;
+}
+
+.splash-stats-text {
+    padding: 1em;
+}
+
+.infographic-left-arrow, .infographic-holder, .infographic-right-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 3em;
+}
+
+
+.infographic-holder {
+    width: 70%;
+    padding-bottom: 2em;
+}
+
+.infographic-holder img {
+    padding-top: 1em;
+    width: 100%;
+}
+
+.stats-holder {
+    position: relative;
+    top: -5em;
+    box-shadow: 10px 10px 2px rgba(178,153,20,0.65);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }
