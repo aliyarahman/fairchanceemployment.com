@@ -1,3 +1,4 @@
 *.pyc
 venv
 fce/fce/settings_hidden.py
+*.pem
