@@ -30,7 +30,7 @@ body {
 }
 
 .black-text {
-    color: #171717;
+    color: #444444;
 }
 
 .black-bg {
@@ -43,6 +43,10 @@ body {
 
 .grey-bg {
     background-color: #999999;
+}
+
+.very-light-grey-bg {
+    background-color: #eeeeee;
 }
 
 .light-grey-bg {
@@ -61,6 +65,131 @@ body {
     background-color: #fff;
 }
 
+.circle {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/* Site nav menu */
+
+.menu-panel {
+    display: none;
+    position: fixed;
+    height: 1000px;
+    width: 45%;
+    top: 0px;
+    right: 0;
+    background-color: rgba(0,0,0,0.65);
+    z-index: 90;
+    padding: 120px 1em 0px 1em;
+}
+
+.menu-panel h1 {
+    font-weight: bold;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.menu-panel h1:hover {
+    color: #ffdb1d;
+}
+
+
+/* Login panel */
+
+.login-panel {
+    display: none;
+    position: fixed;
+    height: 1000px;
+    width: 45%;
+    top: 0px;
+    right: 0;
+    background-color: rgba(0,0,0,0.65);
+    z-index: 90;
+    padding: 120px 1em 0px 1em;
+}
+
+.close-login {
+    cursor: pointer;
+    cursor: hand;
+    margin-bottom: 2em;
+}
+
+.close-login h3 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.close-login-button {
+    vertical-align: middle;
+    margin-left: 0.1em;
+    font-size: 3em;
+    line-height: 1em;
+}
+
+
+.close-login-button:hover {
+    background-color: rgb(178,153,20);
+}
+
+.login-or-register button {
+    width: 100%;
+    position: relative;
+    z-index: 11;
+}
+
+#register-personal-panel-content, #register-business-panel-content, #login-panel-content {
+    display: none;
+    border: 3px solid #cccccc;
+    margin-top: -5px;
+    padding: 1em 1em 3em 1em;
+    position: relative;
+    z-index: 12;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+
+#personal-or-business {
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    padding: 0.75em 0em;
+    margin-bottom: 2em;
+}
+
+#personal-or-business .circle {
+    width: 1em;
+    height: 1em;
+    margin-right: 1em;
+    font-size: 2.5em;
+    line-height: 0.5em;
+}
+
+#personal-or-business .circle span {
+    position: relative;
+    left: -0.2em;
+}
+
+#personal-or-business h4 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.login-panel input {
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+
+.register-button {
+    font-size: 1.5em;
+    padding: 0.5em 2em;
+}
+
+#registration-success {
+    display: none;
+}
 
 
 /* Header style */
@@ -72,6 +201,7 @@ body {
     left: 0px;
     background-color: rgba(255,255,255,0.65);
     height: 100px;
+    z-index: 100;
 }
 
 .fce-logo, .tagline, #signin-links, #menu-button {
@@ -81,14 +211,18 @@ body {
     margin-top: 10px;
 }
 
+#signin-links, #menu-button {
+    cursor: pointer;
+    cursor: hand;
+}
+
 .tagline {
     padding-left: 1em;
 }
 
 
 #menu-button:hover {
-    color: #ffdb1d;
-    background-color: #171717;
+    background-color: rgb(178,153,20);
 }
 
 #login-link:hover, #register-link:hover {
@@ -120,7 +254,6 @@ body {
 
 
 #menu-button {
-    border-radius: 50%;
     height: 80px;
     width: 80px;
 }
@@ -144,8 +277,6 @@ footer {
     height: auto;
     padding: 1em;
 }
-
-
 
 .soc-media-icons {
     padding-right: 2em;
@@ -184,7 +315,6 @@ footer {
     width: 100%;
     position: absolute;
     background-color: rgba(0,0,0,0.35);
-    z-index: 1;
     top: 100px;
     left: 0px;
     z-index: 2;
@@ -228,7 +358,6 @@ footer {
     margin-right: auto;
     margin-top: 2em;
     margin-bottom: 1em;
-    border-radius: 50%;
     overflow: hidden;
     width: 80%;
 }
@@ -296,6 +425,11 @@ footer {
     transition: all 0.5s;
 }
 
+#registration-success .bar-button {
+    height: 4em;
+}
+
+
 .bar-button:hover {
     padding-left: 6em;
     width: 25em;
@@ -303,6 +437,10 @@ footer {
 
 .bar-button h3 {
     line-height: 1.3em;
+}
+
+#registration-success .bar-button h3 {
+    line-height: 0.8em;
 }
 
 
@@ -316,6 +454,15 @@ footer {
     border-left: 2em solid #1660b2;
     border-bottom: 4em solid transparent;
 }
+
+
+#registration-success .triangle-right {
+    border-top: 2em solid transparent;
+    border-left: 1em solid #1660b2;
+    border-bottom: 2em solid transparent;
+
+}
+
 
 .splash-stats-text {
     padding: 1em;
