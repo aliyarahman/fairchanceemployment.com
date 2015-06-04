@@ -116,3 +116,12 @@ $('.register-button').on('click', function() {
 $('.execute-search-button').on('click', function() {
     $('.search-results, .employer-profile').slideDown();
 });
+
+$('.federal-bonding-trigger').on('mouseover', function() {
+    var citation_top = $(this).offset().top;
+    var citation_left = $(this).offset().left;
+    $('.federal-bonding-citation').css({'top': citation_top, 'left': citation_left}).show();
+    $('.federal-bonding-citation').on('mouseout', function() {
+        $(this).hide();
+    });
+});
