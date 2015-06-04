@@ -109,3 +109,10 @@ $('.register-button').on('click', function() {
 
 
 });
+
+
+/* Search page behavior */
+
+$('.execute-search-button').on('click', function() {
+    $('.search-results, .employer-profile').slideDown();
+});

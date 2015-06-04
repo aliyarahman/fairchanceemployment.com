@@ -20,7 +20,7 @@
 
     <!--
     <meta http-equiv="refresh" content="3">
-    -->
+  -->
 
   </head>
 
@@ -105,7 +105,7 @@
       <div class="container-fluid">
           <div class="row white-text text-right">
               <h1>About</h1>
-              <h1>Search Database</h1>
+              <h1><a href="{% url 'search' %}" class="white-text">Search Database</a></h1>
               <h1>Manage Account</h1>
               <h1>Help/FAQs</h1>
               <h1>Contact</h1>
@@ -295,7 +295,7 @@
           <br><br><br>
           <div class="row">
               <div class="blue-bg white-text bar-button">
-                  <h3 class="pull-left">Access the database</h3>
+                  <h3 class="pull-left"><a href="{% url 'search' %}" class="white-text">Access the database</a></h3>
               </div>
               <div class="triangle-right"></div>
           </div>

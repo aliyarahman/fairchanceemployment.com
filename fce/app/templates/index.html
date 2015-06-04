@@ -99,7 +99,7 @@
             
             <div class="row white-bg container-fluid">
                 <div class="blue-bg white-text bar-button">
-                    <h3 class="pull-left">Search re-entry <br>friendly businesses</h3>
+                    <h3 class="pull-left"><a href="{% url 'search' %}" class="white-text">Search re-entry <br>friendly businesses</a></h3>
                 </div>
                 <div class="triangle-right"></div>
             </div>
@@ -120,13 +120,17 @@
 
 
                     <div class="row text-center">
-                        <div class="infographic-left-arrow blue-text btn">&lt;</div>
+                        <div class="infographic-left-arrow blue-text btn">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </div>
 
                         <div class="infographic-holder">
                             <img src="{% static 'img/infographic-2.png' %}">
                         </div>
 
-                        <div class="infographic-right-arrow blue-text btn">&gt;</div>
+                        <div class="infographic-right-arrow blue-text btn">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </div>
                     </div>
                 </div>
             </div>
