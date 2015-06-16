@@ -16,15 +16,12 @@ def index(request):
 def about(request):
     return render(request, "about.html")
 
-def rate(request):
-    return render(request, "rate.html")
-
 def search(request):
-    return render(request, "search.html")
-
-def results(request):
     employers = Employer.objects.all()
-    return render(request, "results.html", {'employers':employers})
+    selected_employer = Employer.objects.filter(name="Wash Cycle Laundry").first()
+    comments = selected_employer.usercomment_set.all()
+    return render(request, "search.html", {'employers':employers, 'selected_employer':selected_employer, 'comments':comments})
+
 
 def employer_home(employer):
     return render(request, "employer_home.html")

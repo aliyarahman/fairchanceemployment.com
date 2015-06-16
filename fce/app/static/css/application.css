@@ -675,7 +675,7 @@ footer {
 }
 
 .user-comment {
-    padding: 1em;
+    padding: 1.5em;
     border-radius: 4px;
     border: 3px #cccccc solid;
     box-shadow: 3px 3px rgba(0,0,0,0.1);
@@ -683,6 +683,7 @@ footer {
 
 .user-comment h3, .user-comment h5 {
     display: inline-block;
+    margin-top: 0em;
 }
 
 .user-comment .glyphicon-thumbs-up {

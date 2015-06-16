@@ -125,36 +125,17 @@
                 <h4 class="light-grey-bg"><span class="black-text">Search Results</span>: Employers who match "complies with ban the box"</h4>
             </div>
         </div>
+
+
+
+        {% for e in employers %}
         <div class="row">
             <div class="col-xs-12 grey-text search-result">
-                <h4 class="very-light-grey-bg black-text">Wash Cycle Laundry <span class="blue-text read-more">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more...</span></h4>
+                <h4 class="very-light-grey-bg black-text">{{e.name}} <span class="blue-text read-more">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more...</span></h4>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 grey-text search-result">
-                <h4 class="very-light-grey-bg black-text">Equity Construction DC <span class="blue-text read-more">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more...</span></h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 grey-text search-result">
-                <h4 class="very-light-grey-bg black-text">City of DC Office of Human Rights <span class="blue-text read-more">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more...</span></h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 grey-text search-result">
-                <h4 class="very-light-grey-bg black-text">Google <span class="blue-text read-more">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more...</span></h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 grey-text search-result">
-                <h4 class="very-light-grey-bg black-text">DC Public Libraries <span class="blue-text read-more">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more...</span></h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 grey-text search-result">
-                <h4 class="very-light-grey-bg black-text">Code for Progress <span class="blue-text read-more">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more...</span></h4>
-            </div>
-        </div>
+        {% endfor %}
+
     </div>
 </div>
 
@@ -162,14 +143,14 @@
     <div class="row">
         <h2 class="col-xs-offset-1 col-xs-10">
             <br>
-            <strong><span class="black-text">Employer Snapshot and Reviews:</span><span class="grey-text"> Wash Cycle Laundry</span></strong>
+            <strong><span class="black-text">Employer Snapshot and Reviews:</span><span class="grey-text"> {{selected_employer.name}}</span></strong>
         </h2>
     </div>
     <div class="row">
         <div class="col-xs-offset-2 col-xs-4">
             <br><br>
             <h4><strong>Description</strong></h4>
-            <p>"Wash Cycle Laundry will pick up your dirty laundry on a bike and bring it back clean tomorrow"</p>
+            <p>"{{selected_employer.description}}"</p>
             <br>
 
             <h4><strong>Industry</strong></h4>
@@ -177,39 +158,31 @@
              <br>
 
             <h4><strong>DC Contact info</strong></h4>
-            <p>Phone: (888) 611-9274</p>
-            <p>Web: <a>www.washcyclelaundry.com</a></p>
-            <p>Twitter: <a>@TheWashCyclist</a></p>
+            <p>Phone: {{selected_employer.phone}}</p>
+            <p>Web: <a href="{{selected_employer.phone}}">{{selected_employer.home_url}}</a></p>
             <br>
 
             <h4><strong>Job inquiries</strong></h4>
-            <p>support@washcyclelaundry.com</p>
+            <p><a href="{{selected_employer.employment_url}}">{{selected_employer.employment_url}}</a></p>
             <br>
             
 
             <h4><strong>Top Comments</strong></h4>
             
+            {% for comment in comments %}
             <div class="user-comment">
                 <h3>
                     <span class="black-text glyphicon glyphicon-thumbs-up"></span>
-                    &nbsp;<span class="blue-text"><strong>71</strong></span>
+                    &nbsp;<span class="blue-text"><strong>{{comment.upvotes}}</strong></span>
                 </h3>
-                &nbsp;<h5>Posted by <b>ReturningCtzn202</b> - 3:15pm, Jan 9 2015</h5>
-                <p><i>"I work for these folks - it's the only place I've ever worked where I can be honest about my record, and where I didn't get penalized for doing probation stuff. Also - I have great calves now from biking around yalls laundry, haha. Does your job give you that?"</i></p>
+                &nbsp;<h5>Posted by <b>{{comment.author.username}}</b> - {{comment.created_at}}</h5>
+                <p><i>"{{comment.text}}"</i></p>
             </div>
-
-
             <br>
-            <div class="user-comment">
-                <h3>
-                    <span class="black-text glyphicon glyphicon-thumbs-up"></span>
-                    &nbsp;<span class="blue-text"><strong>15</strong></span>
-                </h3>
-                &nbsp;&nbsp;<h5>Posted by <b>aliya</b> - 12:01am, May 12 2015</h5>
-                <p><i>"I refer EVERYone to Wash Cycle even though don't actually use these folks (because I do my own laundry - no shade if you don't). But I have definitely been tempted! I saw their founder talk about their RC-friendly hiring policies, and as a person who is close to many returning citizens, I'm definitely a fan."</i></p>
-            </div>
 
-            <br>
+            {% endfor %}
+
+
             <div><b>Have an experience with this employer that you'd like to share? Add it here.</b><br><br>
                 <div class="form-group">
                     <textarea class="form-control very-light-grey-bg" rows="10" id="comment-box"></textarea>
@@ -224,50 +197,200 @@
                 <h3 class="black-text"><strong>Dimensions of re-entry friendliness</strong></h3>
                 <br>
                 <div>
+
                     <h4 class="blue-text">Category 1: Complies with Washington DC's Fair Criminal Record Screening Amendment Act of 2014 ("ban the box" law)</h4>
-                    <p><span class="check blue-text">&#10004;&nbsp;</span>Does not ask about criminal convictions, arrests, or criminal accusations that are pending or that did not result in a conviction.</p>
+
+                    <p>
+                        {% if selected_employer.c1c1_complies_dc == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c1c1_complies_dc == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>                   
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Does not ask about criminal convictions, arrests, or criminal accusations that are pending or that did not result in a conviction.
+                    </p>
+
                 </div>
                 <br>
+
                 <div>
                     <h4 class="blue-text">Category 2: Provides management competency training on practices related to re-entry</h4>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Has a probation/parole-friendly attendance policy and trains managers on how to use it</p>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Trains managers on basic vocabulary and practices related to returning citizen employees (e.g. training materials and practices use terms like "returning citizen" or "formerly incarcerated person" rather than "ex-felon" or "ex-offender")</p>
+
+                    <p>
+                        {% if selected_employer.c2c1_friendly_attendance_policy == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c2c1_friendly_attendance_policy == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>                   
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Has a probation/parole-friendly attendance policy and trains managers on how to use it
+                    </p>
+
+                    <p>
+                        {% if selected_employer.c2c2_manager_training == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c2c2_manager_training == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>                   
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Trains managers on basic vocabulary and practices related to returning citizen employees (e.g. training materials and practices use terms like "returning citizen" or "formerly incarcerated person" rather than "ex-felon" or "ex-offender")
+                    </p>
+
                 </div>
                 <br>
+
+
                 <div>
                     <h4 class="blue-text">Category 3: Participates in active federal incentive programs</h4>
-                    <p>Qualifies for the Work Opportunity Tax Credit</p>
-                    <p>Participates in and qualifies for the Work Opportunity Tax Credit</p>
-                    <p>Participates in the <a class="federal-bonding-trigger">Federal Bonding Program</a></p>
+
+                    <p>
+                        {% if selected_employer.c3c1_eligible_work_opportunity == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c3c1_eligible_work_opportunity == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Qualifies for the Work Opportunity Tax Credit
+                    </p>
+
+                    <p>
+                        {% if selected_employer.c3c2_participates_work_opportunity == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c3c2_participates_work_opportunity == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Participates in and qualifies for the Work Opportunity Tax Credit
+                    </p>
+
+                    <p>
+                        {% if selected_employer.c3c3_federal_bonding == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c3c3_federal_bonding == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Participates in the <a class="federal-bonding-trigger">Federal Bonding Program</a>
+                    </p>
                 </div>
                 <br>
                 <div>
                     <h4 class="blue-text">Category 4: Provides pathways to internal leadership for returning citizens</h4>
-                    <p>Grants merit-based rewards and opportunities to all employees, regardless of record</p>
-                    <p>Offers leadership training to all employees, regardless of record</p> 
+                    <p>
+                        {% if selected_employer.c4c1_merit_based_awards == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c4c1_merit_based_awards == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Grants merit-based rewards and opportunities to all employees, regardless of record
+                    </p>
+                    <p>
+                        {% if selected_employer.c4c2_leadership_training == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c4c2_leadership_training == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Offers leadership training to all employees, regardless of record
+                    </p> 
                 </div>
                 <br>
                 <div>
                     <h4 class="blue-text">Category 5: Engages in responsible citizenship work around re-entry</h4>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Actively recruits across from communities over-represented in the criminal justice system</p>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Engages in supplier diversity to source materials and services from returning-citizen owned businesses</p>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Uses marketing and advertizing that is friendly to returning citizens</p>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Publicly advocates for policies that support work pathways for returning citizens</p>
+                    <p>
+                        {% if selected_employer.c5c1_recruitment == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c5c1_recruitment == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Actively recruits across from communities over-represented in the criminal justice system
+                    </p>
+                    <p>
+                        {% if selected_employer.c5c2_supplier_diversity == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c5c2_supplier_diversity == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Engages in supplier diversity to source materials and services from returning-citizen owned businesses
+                    </p>
+                    <p>
+                        {% if selected_employer.c5c3_friendly_marketing == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c5c3_friendly_marketing == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Uses marketing and advertizing that is friendly to returning citizens
+                    </p>
+                    <p>
+                        {% if selected_employer.c5c4_public_advocacy == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c5c4_public_advocacy == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Publicly advocates for policies that support work pathways for returning citizens
+                    </p>
                 </div>
                 <br>
                 <div>
                     <h4 class="blue-text">Category 6: Avoids other legally permissable practices that create barriers for returning citizens</h4>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Only asks about felony or misdemeanor convictions if the nature of the crime is related to the particular job</p>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Does not check housing history</p>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Does not review the location and status of an applicant’s primary residence at any time during the application process, unless related to job function.</p>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Does not disqualify applicants based on housing or location status</p>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Does not inquire about arrests, charges, etc. that did not result in a conviction</p>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Disregards felonies or misdemeanors beyond XX years</p>
-                    <p><span class="check blue-text">N/A &nbsp;&nbsp;</span>Addresses unfavorable outcome of employment background check with applicant</p>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Does not dismiss applicant immediately if background check for employment returns with unfavorable results</p>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Views violent vs. non-violent convictions differently when considering an applicant</p>
-                    <p><span class="check blue-text">&#10004;&nbsp;&nbsp;</span>Does not view criminal record as a major barrier to a person attaining a job in general</p>
-                    <p>Carries employee dishonesty insurance</p>
+                    <p>
+                        {% if selected_employer.c6c1_nature_of_crime == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c6c1_nature_of_crime == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Only asks about felony or misdemeanor convictions if the nature of the crime is related to the particular job
+                    </p>
+                    <p>
+                        {% if selected_employer.c6c2_no_housing_history_check == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c6c2_no_housing_history_check == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Does not check housing history
+                    </p>
+                    <p>
+                        {% if selected_employer.c6c3_no_residence_loc_review == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c6c3_no_residence_loc_review == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Does not review the location and status of an applicant’s primary residence at any time during the application process, unless related to job function.
+                    </p>
+                    <p>
+                        {% if selected_employer.c6c4_no_housing_based_disq == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c6c4_no_housing_based_disq == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Does not disqualify applicants based on housing or location status
+                    </p>
+                    <p>
+                        {% if selected_employer.c6c5_no_arrests_inquiry == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c6c5_no_arrests_inquiry == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Does not inquire about arrests, charges, etc. that did not result in a conviction
+                    </p>
+                    <p>
+                        {% if selected_employer.c6c6_disregards_conviction_beyond_cutoff == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c6c6_disregards_conviction_beyond_cutoff == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Disregards felonies or misdemeanors beyond {% if selected_employer.c6c6_disregards_conviction_beyond_cutoff == 1 %}{{c6c6num_year_cutoff}}{% else %}XX{% endif %} years
+                    </p>
+                    <p>
+                        {% if selected_employer.c6c7_discusses_unfavorable_check == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c6c7_discusses_unfavorable_check == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Addresses unfavorable outcome of employment background check with applicant
+                    </p>
+                    <p>
+                        {% if selected_employer.c6c8_no_automatic_dismiss_on_bg_check == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c6c8_no_automatic_dismiss_on_bg_check == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Does not dismiss applicant immediately if background check for employment returns with unfavorable results
+                    </p>
+                    <p>
+                        {% if selected_employer.c6c9_differentiates_violent_offenses == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c6c9_differentiates_violent_offenses == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Views violent vs. non-violent convictions differently when considering an applicant
+                    </p>
+                    <p>
+                        {% if selected_employer.c6c10_record_is_not_major_barrier == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c6c10_record_is_not_major_barrier == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Does not view criminal record as a major barrier to a person attaining a job in general
+                    </p>
+                    <p>
+                        {% if selected_employer.c6c11_dishonesty_insurance == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c6c11_dishonesty_insurance == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% endif %}
+                        Carries employee dishonesty insurance
+                    </p>
                 </div>
             </div>
         </div>
