@@ -1,6 +1,6 @@
-import django
+import django, datetime
+from django.utils import timezone
 from django.db import models
-import datetime
 from django.contrib.auth.models import User
 
 
@@ -76,14 +76,13 @@ class UserComment(models.Model):
     author = models.ForeignKey(User)
     employer = models.ForeignKey(Employer)
     text = models.TextField(null=True, blank=True)
-    date_posted = models.CharField(max_length=40, null=True, blank=True)
     upvotes = models.IntegerField(default= 0)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
-        return self.id
+        return self.text[0:30]+"..."
 
 
 
