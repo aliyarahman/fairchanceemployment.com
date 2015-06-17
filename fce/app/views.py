@@ -26,6 +26,12 @@ def search(request):
 def employer_home(employer):
     return render(request, "employer_home.html")
 
+def jobseeker_home(employer):
+    return render(request, "jobseeker_home.html")
+
+def consumer_home(employer):
+    return render(request, "consumer_home.html")
+
 def add_employer(employer, employer_id):
     return render(request, "add_employer.html")
 
