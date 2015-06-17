@@ -162,8 +162,9 @@
             <p>Web: <a href="{{selected_employer.phone}}">{{selected_employer.home_url}}</a></p>
             <br>
 
-            <h4><strong>Job inquiries</strong></h4>
-            <p><a href="{{selected_employer.employment_url}}">{{selected_employer.employment_url}}</a></p>
+            <h4><strong>How do I apply?</strong></h4>
+            <p>Job postings: <a href="{{selected_employer.employment_url}}">{{selected_employer.employment_url}}</a></p>
+            <p><a>Need help getting ready to work</a></p>
             <br>
             
 
@@ -192,8 +193,8 @@
         </div>
         <div class="col-xs-offset-1 col-xs-4">
             <br>
-            <div class="stars yellow-text">&#9733;&#9733;&#9733;&#9733;&#9733;<span class="black-text">&nbsp;92</span></div>
-            <div class-"dimensions">
+            <div class="stars yellow-text">&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class-"dimensions">  
                 <h3 class="black-text"><strong>Dimensions of re-entry friendliness</strong></h3>
                 <br>
                 <div>
@@ -240,23 +241,23 @@
                     <p>
                         {% if selected_employer.c3c1_eligible_work_opportunity == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
                         {% elif selected_employer.c3c1_eligible_work_opportunity == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
-                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% else %}<span class="check red-text">&#10006; &nbsp;&nbsp;</span>
                         {% endif %}
                         Qualifies for the Work Opportunity Tax Credit
                     </p>
 
                     <p>
                         {% if selected_employer.c3c2_participates_work_opportunity == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
-                        {% elif selected_employer.c3c2_participates_work_opportunity == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
-                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c3c2_participates_work_opportunity == 1 %}<span class="check green-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check red-text">&#10006; &nbsp;&nbsp;</span>
                         {% endif %}
                         Participates in and qualifies for the Work Opportunity Tax Credit
                     </p>
 
                     <p>
                         {% if selected_employer.c3c3_federal_bonding == 0 %}<span class="check blue-text">N/A &nbsp;&nbsp;</span>
-                        {% elif selected_employer.c3c3_federal_bonding == 1 %}<span class="check blue-text">&#10004;&nbsp;</span>
-                        {% else %}<span class="check yellow-text">&#10006; &nbsp;&nbsp;</span>
+                        {% elif selected_employer.c3c3_federal_bonding == 1 %}<span class="check green-text">&#10004;&nbsp;</span>
+                        {% else %}<span class="check red-text">&#10006; &nbsp;&nbsp;</span>
                         {% endif %}
                         Participates in the <a class="federal-bonding-trigger">Federal Bonding Program</a>
                     </p>

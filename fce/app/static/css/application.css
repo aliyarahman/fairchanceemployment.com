@@ -41,6 +41,18 @@ body {
     color: #999999;
 }
 
+.green-text {
+    color: #009900;
+}
+
+.red-text {
+    color: #B80000;
+}
+
+.check {
+    font-size: 2em;
+}
+
 .grey-bg {
     background-color: #999999;
 }
@@ -57,6 +69,7 @@ body {
     background-color: #717171;
 }
 
+
 .light-blue-bg {
     background-color: #4d89c4;
 }
@@ -70,6 +83,7 @@ body {
     -moz-border-radius: 50%;
     border-radius: 50%;
 }
+
 
 
 .poster {

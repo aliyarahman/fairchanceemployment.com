@@ -22,11 +22,11 @@ class Employer(models.Model):
     phone = models.CharField(max_length=40, null=True, blank=True)
     email = models.EmailField(max_length=255, null=True, blank=True)
     hq_address = models.CharField(max_length=255, null=True, blank=True)
+    dc_address = models.CharField(max_length=255, null=True, blank=True)
     hq_in_dc = models.BooleanField(default=False)
     home_url = models.CharField(max_length=255, null=True, blank=True)
     employment_url = models.CharField(max_length=255, null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
-    score = models.IntegerField(default = 0)
     stars = models.IntegerField(default = 0)
 
     # Category 1 Criteria

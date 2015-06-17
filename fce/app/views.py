@@ -22,18 +22,21 @@ def search(request):
     comments = selected_employer.usercomment_set.all()
     return render(request, "search.html", {'employers':employers, 'selected_employer':selected_employer, 'comments':comments})
 
+    # if searching by top rank
+    # top_employers = Employer.object.all().order_by(score, descending, limit=20)
 
-def employer_home(employer):
+
+def employer_home(request):
     return render(request, "employer_home.html")
 
-def jobseeker_home(employer):
+def jobseeker_home(request):
     return render(request, "jobseeker_home.html")
 
-def consumer_home(employer):
+def consumer_home(request):
     return render(request, "consumer_home.html")
 
-def add_employer(employer, employer_id):
+def add_employer(request, employer_id):
     return render(request, "add_employer.html")
 
-def edit_employer(employer, employer_id):
+def edit_employer(request, employer_id):
     return render(request, "edit_employer.html")
