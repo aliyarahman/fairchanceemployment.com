@@ -40,7 +40,11 @@
 
       <div class="col-xs-6 right-nav text-right">
         <div id="signin-links">
-          <div id="login-link">login</div> | <div id="register-link">register</div>
+            {% if user.is_authenticated %}<div class="white-text">Hi, {{user.first_name}}</div>{% endif %}
+
+            {% if user.is_authenticated %}<div id ="logout-link"><a href="{% url 'logout_view' %}">logout</a></div>
+            {% else %} <div id="login-link">login</div> | <div id="register-link">register</div>
+            {% endif %}
         </div>
         <div id="menu-button" class="black-text yellow-bg circle">
           <div class="burger-box"> 

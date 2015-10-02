@@ -10,4 +10,6 @@ urlpatterns = patterns('',
     url(r'^employer/(?P<employer_id>\d+)/edit/$', views.edit_employer, name='edit_employer'),
     url(r'^consumer_home/$', views.consumer_home, name='consumer_home'),
     url(r'^jobseeker_home/$', views.jobseeker_home, name='jobseeker_home'),
+    url(r'^logout/$', views.logout_view, name='logout_view'),
+
 )

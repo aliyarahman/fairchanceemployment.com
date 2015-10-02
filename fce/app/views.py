@@ -24,14 +24,14 @@ def index(request):
                 login(request, user)
                 if request.user.is_authenticated():
                     return HttpResponseRedirect(reverse('jobseeker_home'))
-            # else:
-            #     return HttpResponse()
+            else:
+                return HttpResponse("That is not the correct username / password") #do we want an http respons for this?
         elif registration_form.is_valid():
             username = registration_form.cleaned_data.get('username')
             email = registration_form.cleaned_data.get('email')
             password = registration_form.cleaned_data.get('password')
             retype_password = registration_form.cleaned_data.get('retype_password')
-            user = User.objects.create_user(username, email, password) #change screen_name to username
+            user = User.objects.create_user(username, email, password) 
             user.first_name = registration_form.cleaned_data.get('first_name')
             user.last_name = registration_form.cleaned_data.get('last_name')
             user.save()
@@ -41,7 +41,17 @@ def index(request):
 
     login_form = CustomLoginForm()
     registration_form = CreateAccountForm()
-    return render(request, "index.html", {'login_form': login_form, 'registration_form': registration_form})  
+    return render(request, "index.html", {'login_form': login_form, 'registration_form': registration_form}) 
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))
+
+
+
+# def logout(request):
+#     logout(request)
+#     return render(request, "index.html")
 
 def about(request):
     return render(request, "about.html")
