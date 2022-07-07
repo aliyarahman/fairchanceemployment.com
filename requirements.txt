@@ -14,7 +14,7 @@ prettytable==0.7.2
 psycopg2==2.6
 pycurl==7.19.3
 pyserial==2.6
-requests==2.2.1
+requests==2.20.0
 six==1.5.2
 ssh-import-id==3.21
 static3==0.6.1
